@@ -45,6 +45,24 @@ class Notification{ //declear it globaly
         }).show();
     }
 
+    cart_success(){
+        new Noty({
+            type:'success',
+            layout: 'topRight',
+            text: 'Successfully Add to Cart',
+            timeout:1000
+        }).show();
+    }
+
+    cart_delete(){
+        new Noty({
+            type:'success',
+            layout: 'topRight',
+            text: 'Remove from Cart',
+            timeout:1000
+        }).show();
+    }
+
 
 }
 

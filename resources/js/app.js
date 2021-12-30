@@ -38,6 +38,7 @@ const Toast = Swal.mixin({ //sweet alert code
   });
 
   window.Toast = Toast;  // add new toast to see msg
+  window.Reload = new Vue();
 
 const router = new VueRouter({
   routes,

@@ -74,7 +74,7 @@ class EmployeeController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
+    {  // update photo
         $data = array();
         $data['name'] = $request->name;
         $data['email'] = $request->email;
@@ -97,13 +97,13 @@ class EmployeeController extends Controller
             $success = $img->save($image_url); //ekhne new image asbe
 
             if($success){ //jdi new image pay tahle condition er maddhome oita replace korbe
-                $data['photo'] = $image_url;
+                $data['photo'] = $image_url; //jdi notun pi c ase seta photo te joma hobe
                 $img = DB::table('employees')->where('id',$id)->first();
                 $image_path = $img->photo;
-                $done = unlink($image_path);
+                $done = unlink($image_path);//ager pi c unlink hoiea jbe
                 $user = DB::table('employees')->where('id',$id)->update($data);
             }
-        }else{
+        }else{ //without updating photo
             $oldphoto = $request->photo;
             $data['photo'] = $request->photo;
             $user = DB::table('employees')->where('id',$id)->update($data);
